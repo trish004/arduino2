@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Trish Maganga",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 121.8, "left": -102.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -85.8, "left": -39, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -138, "left": 71, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 156.8,
+      "left": -47.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 205.85,
+      "left": 152.2,
+      "rotate": 180,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "led1:C", "uno:GND.1", "green", [ "v0" ] ],
+    [ "uno:13", "led1:A", "green", [ "v0" ] ],
+    [ "r1:1", "uno:5V", "green", [ "v0" ] ],
+    [ "ldr1:GND", "uno:GND.3", "black", [ "h0" ] ],
+    [ "r1:2", "ldr1:AO", "green", [ "v0" ] ],
+    [ "ldr1:DO", "uno:A0", "green", [ "h0" ] ],
+    [ "ldr1:VCC", "bb1:22t.a", "", [ "$bb" ] ],
+    [ "ldr1:GND", "bb1:22t.b", "", [ "$bb" ] ],
+    [ "ldr1:DO", "bb1:22t.c", "", [ "$bb" ] ],
+    [ "ldr1:AO", "bb1:22t.d", "", [ "$bb" ] ],
+    [ "ldr1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "r1:1", "bb1:31t.e", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:25t.e", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
